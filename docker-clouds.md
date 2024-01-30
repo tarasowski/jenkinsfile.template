@@ -15,3 +15,14 @@
 13. Click add docker template and fill in the details for the Docker images you want to use as agents.
 14. Add a label for this agent template (you'll use this in your Jenkins jobs to specify that they should run on this Docker agent)
 15. Add the docker image to use for this agent. This image should have all the tools your Jenkins jobs need to run. (you can use it later to restric the jobs to a specific label). `Note: there needs to be a specific image settings at least java installed to run jenkins, you can't use only python:3.11 or something similar` -> you can start with this image: `devopsjourney1/myjenkinsagents:python`
+
+Bonus: You can create your own base image
+
+```
+FROM python:3.11
+
+RUN apt-get update && apt-get install -y openjdk-17-jdk
+
+# Verify Java installation
+RUN java -version
+```
