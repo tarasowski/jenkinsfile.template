@@ -4,24 +4,20 @@ pipeline {
             label 'docker-agent-python'
         }
     }
-    // add trigger to the file
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-username/your-repo.git'
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                // put your build steps here
+                sh 'pip install -r myapp/requirements.txt'
             }
         }
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'Testing...'
-                // put your test steps here
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // put your deploy steps here
+                sh 'python myapp/main.py'
             }
         }
     }
