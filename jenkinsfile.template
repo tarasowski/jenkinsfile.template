@@ -15,9 +15,14 @@ pipeline {
                 sh 'pip install -r myapp/requirements.txt'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'python3 myapp/tests.py'
+            }
+        }
         stage('Run') {
             steps {
-                sh 'python myapp/main.py'
+                sh 'python3 myapp/main.py'
             }
         }
     }
