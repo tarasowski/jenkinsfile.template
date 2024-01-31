@@ -9,6 +9,7 @@
 - First take 5 to 10 minutes and present your approach
 - Develop the application
 - In deploy step should be able to run the deployment via ansible, it should pick up the app and deploy to the server
+- SSH key for the server can be stored in Jenkins Credentials and referenced via env variables --private-key
 
 ```
 /my-flask-app
